@@ -1,13 +1,12 @@
 import axios from "axios"
 
     const getData =  async () => {
-        //const API_URL = `https://livescore6.p.rapidapi.com/matches/v2/${endpoint}`
         const API_URL= 'https://www.scorebat.com/video-api/v3/'
-        let response =''
+        let response =[]
 
         try {
             response = await axios.get(API_URL)
-            //console.log(response.data);
+            //console.log(response);
             let { data } = response
             //console.log(data)
             return(data)
