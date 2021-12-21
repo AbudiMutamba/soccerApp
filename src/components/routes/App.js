@@ -12,7 +12,7 @@ function App() {
     return (
         
          <Router >
-             <header className="header">
+             <header className="headerSection">
                 <h1>
                     <Link to="/">SoccerApp</Link>
                 </h1>

@@ -65,12 +65,12 @@ function Matches() { //Opening a component
                     
                         <div >
 
-                            {match.title} <br/>
                             {/* <img src={match.thumbnail} alt='pic' /> <br/> */}
-                            {match.competition}<br/>
+                           
                             {/* {match.highlights} <br/>  */}
                             {<div dangerouslySetInnerHTML={{ __html: match.video }} />}
-                           
+                            {match.title} <br/>
+                            {match.competition}<br/>
                            
                         </div>
                         

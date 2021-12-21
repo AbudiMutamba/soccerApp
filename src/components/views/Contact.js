@@ -1,21 +1,33 @@
 import * as React from 'react'
+import postData from '../helpers/postData'
 import { Button, Form, Container, Header } from 'semantic-ui-react'
 
 
 export default function Contact() {
     const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
-    const [messege, setMessege] = React.useState('')
+    const [message, setMessage] = React.useState('')
 
-    const changeHandler = event => { 
-        const {value} = event.target
-    }
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        const { name, email, messege} = value;
-        console.log(name);
-        console.log(email);
-        console.log(messege);
+        // console.log(
+        //   {
+        //     name: name,
+        //     email: email,
+        //     message: message 
+        //   }
+        // )
+        await postData({ name, email, message})
+  
+        
+        
+        // const {value} = e.target
+        
+        // const { name, email, messege} = value;
+        // console.log(name);
+        // console.log(email);
+        // console.log(messege);
+       // console.log(e.target.value)
     }
     return (
         <>
@@ -24,18 +36,18 @@ export default function Contact() {
         <Form className="form" onSubmit={handleSubmit}>
           <Form.Field>
             <label>Name</label>
-            <input placeholder='Enter your name' type="text" name = "name"  onChange={changeHandler}/>
+            <input placeholder='Enter your name' type="text" name = "name" onChange={event => setName(event.target.value)}/>
           </Form.Field>
           <Form.Field>
             <label>Email</label>
-            <input placeholder='Enter your email' type="number" name = "email"  onChange={changeHandler} />
+            <input placeholder='Enter your email' type="text" name = "email" onChange={event => setEmail(event.target.value)}/>
           </Form.Field>
           <Form.Field>
             <label>Messege</label>
-            <input placeholder='Enter your messege' type="number" name = "Messege" onChange={changeHandler} />
+            <input placeholder='Enter your messege' type="text" name = "Messege" onChange={event => setMessage(event.target.value)} />
           </Form.Field>
 
-          <Button color="blue" type='submit' >Submit</Button>
+          <Button color="blue" type='submit'>Submit</Button>
         </Form>
       </Container>
       </>
